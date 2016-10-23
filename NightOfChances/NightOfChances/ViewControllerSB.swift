@@ -1,5 +1,5 @@
 //
-//  ViewControllerNoSB.swift
+//  ViewController.swift
 //  NightOfChances
 //
 //  Created by Jakub Blahut on 23/10/16.
@@ -8,35 +8,26 @@
 
 import UIKit
 
-class ViewControllerNoSB: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
-    let tableView = UITableView()
+class ViewControllerSB: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "Night Of Chances"
-        view.backgroundColor = UIColor.whiteColor()
-
         tableView.dataSource = self
         tableView.delegate = self
-        view.addSubview(tableView)
     }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
-        tableView.frame = view.bounds
-    }
-
+ 
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") ?? UITableViewCell(style: .Default, reuseIdentifier: "cell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
         
         return cell
     }
     
 }
+
