@@ -11,6 +11,7 @@ import UIKit
 class ViewControllerNoSB: UIViewController, UITableViewDataSource, UITableViewDelegate, CardDetailViewControllerDelegate {
     
     let tableView = UITableView()
+    var dataSourceAndDelegate: TableViewDataSourceAndDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,8 +19,13 @@ class ViewControllerNoSB: UIViewController, UITableViewDataSource, UITableViewDe
         title = "Night Of Chances"
         view.backgroundColor = UIColor.whiteColor()
 
-        tableView.dataSource = self
-        tableView.delegate = self
+//        tableView.dataSource = self
+//        tableView.delegate = self
+        
+        dataSourceAndDelegate = TableViewDataSourceAndDelegate(rootViewController: self)
+        tableView.dataSource = dataSourceAndDelegate
+        tableView.delegate = dataSourceAndDelegate
+        
         view.addSubview(tableView)
     }
     

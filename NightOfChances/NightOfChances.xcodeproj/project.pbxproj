@@ -15,6 +15,7 @@
 		94B726431DBCFEE900A998C8 /* ViewControllerNoSB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B726421DBCFEE900A998C8 /* ViewControllerNoSB.swift */; };
 		94B726471DBD0A7700A998C8 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B726451DBD0A7700A998C8 /* CardDetailViewController.swift */; };
 		94B726481DBD0A7700A998C8 /* CardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B726461DBD0A7700A998C8 /* CardDetailViewController.xib */; };
+		94B7264B1DBD0E8E00A998C8 /* TableViewDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7264A1DBD0E8E00A998C8 /* TableViewDataSourceAndDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		94B726421DBCFEE900A998C8 /* ViewControllerNoSB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerNoSB.swift; sourceTree = "<group>"; };
 		94B726451DBD0A7700A998C8 /* CardDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		94B726461DBD0A7700A998C8 /* CardDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardDetailViewController.xib; sourceTree = "<group>"; };
+		94B7264A1DBD0E8E00A998C8 /* TableViewDataSourceAndDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceAndDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				94B726381DBCFD3500A998C8 /* LaunchScreen.storyboard */,
 				94B7263B1DBCFD3500A998C8 /* Info.plist */,
 				94B726491DBD0A7B00A998C8 /* Card */,
+				94B7264A1DBD0E8E00A998C8 /* TableViewDataSourceAndDelegate.swift */,
 			);
 			path = NightOfChances;
 			sourceTree = "<group>";
@@ -170,6 +173,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				94B726321DBCFD3500A998C8 /* ViewControllerSB.swift in Sources */,
+				94B7264B1DBD0E8E00A998C8 /* TableViewDataSourceAndDelegate.swift in Sources */,
 				94B726471DBD0A7700A998C8 /* CardDetailViewController.swift in Sources */,
 				94B726431DBCFEE900A998C8 /* ViewControllerNoSB.swift in Sources */,
 				94B726301DBCFD3500A998C8 /* AppDelegate.swift in Sources */,
