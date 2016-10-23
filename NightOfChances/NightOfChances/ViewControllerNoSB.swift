@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerNoSB: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewControllerNoSB: UIViewController, UITableViewDataSource, UITableViewDelegate, CardDetailViewControllerDelegate {
     
     let tableView = UITableView()
 
@@ -37,6 +37,18 @@ class ViewControllerNoSB: UIViewController, UITableViewDataSource, UITableViewDe
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") ?? UITableViewCell(style: .Default, reuseIdentifier: "cell")
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cardDetailViewController = CardDetailViewController()
+        cardDetailViewController.delegate = self
+        
+        navigationController?.pushViewController(cardDetailViewController, animated: true)
+    }
+    
+    func cardDetailViewControllerButtonTapped() {
+        tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: false)
+        navigationController?.popViewControllerAnimated(true)
     }
     
 }
