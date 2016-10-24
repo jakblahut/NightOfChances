@@ -20,11 +20,14 @@ class ViewControllerSB: UIViewController, UITableViewDataSource, UITableViewDele
     }
  
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return 5
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        
+        cell.textLabel?.text = "cell \(indexPath.row)"
+        cell.detailTextLabel?.text = "\(indexPath.row) subtitle"
         
         return cell
     }

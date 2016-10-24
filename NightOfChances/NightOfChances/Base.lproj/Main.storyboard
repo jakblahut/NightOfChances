@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View ControllerSB-->
+        <!--Night Of Chances-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewControllerSB" customModule="NightOfChances" customModuleProvider="target" sceneMemberID="viewController">
@@ -35,7 +35,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="yEb-FW-PcH"/>
+                    <navigationItem key="navigationItem" title="Night Of Chances" id="yEb-FW-PcH"/>
                     <connections>
                         <outlet property="tableView" destination="336-oF-3rp" id="Ckg-T7-AaF"/>
                     </connections>

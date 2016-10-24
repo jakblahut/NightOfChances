@@ -22,7 +22,7 @@ class ViewControllerNoSB: UIViewController, UITableViewDataSource, UITableViewDe
 //        tableView.dataSource = self
 //        tableView.delegate = self
         
-        dataSourceAndDelegate = TableViewDataSourceAndDelegate(rootViewController: self)
+        dataSourceAndDelegate = TableViewDataSourceAndDelegate(rootViewController: self, tableView: tableView)
         tableView.dataSource = dataSourceAndDelegate
         tableView.delegate = dataSourceAndDelegate
         
@@ -41,6 +41,9 @@ class ViewControllerNoSB: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") ?? UITableViewCell(style: .Default, reuseIdentifier: "cell")
+        
+        cell.textLabel?.text = "cell \(indexPath.row)"
+        cell.detailTextLabel?.text = "\(indexPath.row) subtitle"
         
         return cell
     }
