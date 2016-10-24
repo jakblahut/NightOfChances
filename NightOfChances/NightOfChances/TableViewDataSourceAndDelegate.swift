@@ -24,6 +24,9 @@ class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
         super.init()
         
         createModel(tableView)
+        
+//        let structVsClass = StructVsClass()
+//        structVsClass.doMagic()
     }
     
     private func createModel(tableViewToUpdate: UITableView) {
@@ -73,3 +76,35 @@ class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
     }
     
 }
+
+
+//class StructVsClass: NSObject {
+//    
+//    struct CustomStruct {
+//        var variable = ""
+//    }
+//    
+//    class CustomClass {
+//        var variable = ""
+//    }
+//    
+//    func doMagic() {
+//        var s1 = CustomStruct()
+//        var s2 = CustomStruct()
+//        
+//        let c1 = CustomClass()
+//        var c2 = CustomClass()
+//        
+//        s1.variable = "struct 1"
+//        s2 = s1
+//        s2.variable = "struct 2"
+//        
+//        c1.variable = "class 1"
+//        c2 = c1
+//        c2.variable = "class 2"
+//        
+//        print("s1 = \(s1.variable) .... c1 = \(c1.variable)")
+//    }
+//    
+//}
+

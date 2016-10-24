@@ -26,9 +26,9 @@
 		94B7262F1DBCFD3500A998C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94B726311DBCFD3500A998C8 /* ViewControllerSB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSB.swift; sourceTree = "<group>"; };
 		94B726341DBCFD3500A998C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		94B726361DBCFD3500A998C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		94B726361DBCFD3500A998C8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = NightOfChances/Assets.xcassets; sourceTree = "<group>"; };
 		94B726391DBCFD3500A998C8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		94B7263B1DBCFD3500A998C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94B7263B1DBCFD3500A998C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = NightOfChances/Info.plist; sourceTree = "<group>"; };
 		94B726421DBCFEE900A998C8 /* ViewControllerNoSB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerNoSB.swift; sourceTree = "<group>"; };
 		94B726451DBD0A7700A998C8 /* CardDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
 		94B726461DBD0A7700A998C8 /* CardDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardDetailViewController.xib; sourceTree = "<group>"; };
@@ -54,6 +54,9 @@
 			children = (
 				94B7264C1DBE587700A998C8 /* cards.json */,
 				94B7262E1DBCFD3500A998C8 /* NightOfChances */,
+				94B726361DBCFD3500A998C8 /* Assets.xcassets */,
+				94B726381DBCFD3500A998C8 /* LaunchScreen.storyboard */,
+				94B7263B1DBCFD3500A998C8 /* Info.plist */,
 				94B7262D1DBCFD3500A998C8 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -72,9 +75,6 @@
 				94B7262F1DBCFD3500A998C8 /* AppDelegate.swift */,
 				94B726411DBCFE9D00A998C8 /* No StoryBoard */,
 				94B726441DBCFF0700A998C8 /* StoryBoard */,
-				94B726361DBCFD3500A998C8 /* Assets.xcassets */,
-				94B726381DBCFD3500A998C8 /* LaunchScreen.storyboard */,
-				94B7263B1DBCFD3500A998C8 /* Info.plist */,
 				94B726491DBD0A7B00A998C8 /* Card */,
 				94B726521DBE667D00A998C8 /* DataSource */,
 			);
@@ -103,7 +103,6 @@
 			children = (
 				94B726451DBD0A7700A998C8 /* CardDetailViewController.swift */,
 				94B726461DBD0A7700A998C8 /* CardDetailViewController.xib */,
-				94B7264E1DBE5A7300A998C8 /* JSONParser.swift */,
 				94B726501DBE5D5000A998C8 /* Card.swift */,
 			);
 			name = Card;
@@ -113,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				94B7264A1DBD0E8E00A998C8 /* TableViewDataSourceAndDelegate.swift */,
+				94B7264E1DBE5A7300A998C8 /* JSONParser.swift */,
 			);
 			name = DataSource;
 			sourceTree = "<group>";
@@ -217,6 +217,7 @@
 				94B726391DBCFD3500A998C8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			path = NightOfChances;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
