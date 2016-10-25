@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewControllerNoSB: UIViewController, UITableViewDataSource, UITableViewDelegate, CardDetailViewControllerDelegate {
+class ViewControllerNoSB: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let tableView = UITableView()
     var dataSourceAndDelegate: TableViewDataSourceAndDelegate?
@@ -49,10 +49,9 @@ class ViewControllerNoSB: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cardDetailViewController = CardDetailViewController()
-        cardDetailViewController.delegate = self
-        
-        navigationController?.pushViewController(cardDetailViewController, animated: true)
+//        let cardDetailViewController = CardDetailViewController(card: card)
+//        cardDetailViewController.delegate = self
+//        navigationController?.pushViewController(cardDetailViewController, animated: true)
     }
     
     func cardDetailViewControllerButtonTapped() {

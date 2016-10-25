@@ -11,4 +11,10 @@ import UIKit
 struct Card {
     let id: String
     let number: String
+    let owner: String
+    let product: String
+    let balance: NSDecimalNumber
+    let limit: NSDecimalNumber
+    let currency: String
+    let actions: Array<String>
 }

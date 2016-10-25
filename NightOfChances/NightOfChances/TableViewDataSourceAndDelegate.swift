@@ -11,9 +11,10 @@ import UIKit
 struct CardTableModel {
     let title: String
     let subTitle: String
+    let card: Card
 }
 
-class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableViewDelegate, CardDetailViewControllerDelegate {
+class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     weak var rootViewController: UIViewController?
     var cardTableModels: [CardTableModel] = []
@@ -38,7 +39,7 @@ class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
             jsonParser.parseData(data!) { [weak self] (cards) in
                 if let cards = cards {
                     for card in cards {
-                        let cardTableModel = CardTableModel(title: card.id, subTitle: card.number)
+                        let cardTableModel = CardTableModel(title: card.id, subTitle: card.number, card: card)
                         self?.cardTableModels.append(cardTableModel)
                     }
                     
@@ -64,8 +65,7 @@ class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cardDetailViewController = CardDetailViewController()
-        cardDetailViewController.delegate = self
+        let cardDetailViewController = CardDetailViewController(card: cardTableModels[indexPath.row].card)
         
         rootViewController?.navigationController?.pushViewController(cardDetailViewController, animated: true)
         tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: false)

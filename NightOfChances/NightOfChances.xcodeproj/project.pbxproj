@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		54F1C7501DBED52B001127D1 /* CardService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F1C74F1DBED52B001127D1 /* CardService.swift */; };
+		54F1C7521DBED5B2001127D1 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54F1C7511DBED5B2001127D1 /* Service.swift */; };
 		94B726301DBCFD3500A998C8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7262F1DBCFD3500A998C8 /* AppDelegate.swift */; };
 		94B726321DBCFD3500A998C8 /* ViewControllerSB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B726311DBCFD3500A998C8 /* ViewControllerSB.swift */; };
 		94B726351DBCFD3500A998C8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94B726331DBCFD3500A998C8 /* Main.storyboard */; };
@@ -14,7 +16,6 @@
 		94B7263A1DBCFD3500A998C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94B726381DBCFD3500A998C8 /* LaunchScreen.storyboard */; };
 		94B726431DBCFEE900A998C8 /* ViewControllerNoSB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B726421DBCFEE900A998C8 /* ViewControllerNoSB.swift */; };
 		94B726471DBD0A7700A998C8 /* CardDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B726451DBD0A7700A998C8 /* CardDetailViewController.swift */; };
-		94B726481DBD0A7700A998C8 /* CardDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94B726461DBD0A7700A998C8 /* CardDetailViewController.xib */; };
 		94B7264B1DBD0E8E00A998C8 /* TableViewDataSourceAndDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7264A1DBD0E8E00A998C8 /* TableViewDataSourceAndDelegate.swift */; };
 		94B7264D1DBE587700A998C8 /* cards.json in Resources */ = {isa = PBXBuildFile; fileRef = 94B7264C1DBE587700A998C8 /* cards.json */; };
 		94B7264F1DBE5A7300A998C8 /* JSONParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94B7264E1DBE5A7300A998C8 /* JSONParser.swift */; };
@@ -22,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		54F1C74F1DBED52B001127D1 /* CardService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardService.swift; sourceTree = "<group>"; };
+		54F1C7511DBED5B2001127D1 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		94B7262C1DBCFD3500A998C8 /* NightOfChances.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NightOfChances.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94B7262F1DBCFD3500A998C8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94B726311DBCFD3500A998C8 /* ViewControllerSB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerSB.swift; sourceTree = "<group>"; };
@@ -31,7 +34,6 @@
 		94B7263B1DBCFD3500A998C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = NightOfChances/Info.plist; sourceTree = "<group>"; };
 		94B726421DBCFEE900A998C8 /* ViewControllerNoSB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerNoSB.swift; sourceTree = "<group>"; };
 		94B726451DBD0A7700A998C8 /* CardDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardDetailViewController.swift; sourceTree = "<group>"; };
-		94B726461DBD0A7700A998C8 /* CardDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CardDetailViewController.xib; sourceTree = "<group>"; };
 		94B7264A1DBD0E8E00A998C8 /* TableViewDataSourceAndDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewDataSourceAndDelegate.swift; sourceTree = "<group>"; };
 		94B7264C1DBE587700A998C8 /* cards.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = cards.json; path = NightOfChances/cards.json; sourceTree = "<group>"; };
 		94B7264E1DBE5A7300A998C8 /* JSONParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParser.swift; sourceTree = "<group>"; };
@@ -49,6 +51,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		54F1C74E1DBED4B2001127D1 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				54F1C7511DBED5B2001127D1 /* Service.swift */,
+				54F1C74F1DBED52B001127D1 /* CardService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
 		94B726231DBCFD3500A998C8 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +88,7 @@
 				94B726441DBCFF0700A998C8 /* StoryBoard */,
 				94B726491DBD0A7B00A998C8 /* Card */,
 				94B726521DBE667D00A998C8 /* DataSource */,
+				54F1C74E1DBED4B2001127D1 /* Services */,
 			);
 			path = NightOfChances;
 			sourceTree = "<group>";
@@ -102,7 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				94B726451DBD0A7700A998C8 /* CardDetailViewController.swift */,
-				94B726461DBD0A7700A998C8 /* CardDetailViewController.xib */,
 				94B726501DBE5D5000A998C8 /* Card.swift */,
 			);
 			name = Card;
@@ -176,7 +187,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				94B7263A1DBCFD3500A998C8 /* LaunchScreen.storyboard in Resources */,
-				94B726481DBD0A7700A998C8 /* CardDetailViewController.xib in Resources */,
 				94B726371DBCFD3500A998C8 /* Assets.xcassets in Resources */,
 				94B7264D1DBE587700A998C8 /* cards.json in Resources */,
 				94B726351DBCFD3500A998C8 /* Main.storyboard in Resources */,
@@ -195,8 +205,10 @@
 				94B726511DBE5D5000A998C8 /* Card.swift in Sources */,
 				94B7264F1DBE5A7300A998C8 /* JSONParser.swift in Sources */,
 				94B726471DBD0A7700A998C8 /* CardDetailViewController.swift in Sources */,
+				54F1C7521DBED5B2001127D1 /* Service.swift in Sources */,
 				94B726431DBCFEE900A998C8 /* ViewControllerNoSB.swift in Sources */,
 				94B726301DBCFD3500A998C8 /* AppDelegate.swift in Sources */,
+				54F1C7501DBED52B001127D1 /* CardService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
