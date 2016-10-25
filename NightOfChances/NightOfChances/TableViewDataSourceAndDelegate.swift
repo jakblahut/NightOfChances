@@ -25,9 +25,6 @@ class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
         super.init()
         
         createModel(tableView)
-        
-//        let structVsClass = StructVsClass()
-//        structVsClass.doMagic()
     }
     
     private func createModel(tableViewToUpdate: UITableView) {
@@ -52,14 +49,14 @@ class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return cardTableModels.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell") ?? UITableViewCell(style: .Value1, reuseIdentifier: "cell")
         
-        cell.textLabel?.text = "cell \(indexPath.row)"
-        cell.detailTextLabel?.text = "\(indexPath.row) subtitle"
+        cell.textLabel?.text = cardTableModels[indexPath.row].title
+        cell.detailTextLabel?.text = cardTableModels[indexPath.row].subTitle
         
         return cell
     }
@@ -76,97 +73,4 @@ class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
     }
     
 }
-
-
-//struct CardTableModel {
-//    let title: String
-//    let subTitle: String
-//}
-//
-//class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableViewDelegate {
-//    
-//    weak var rootViewController: UIViewController?
-//    var cardTableModels: [CardTableModel] = []
-//    
-//    init(rootViewController: UIViewController, tableView: UITableView) {
-//        self.rootViewController = rootViewController
-//        
-//        super.init()
-//        
-//        createModel(tableView)
-//    }
-//    
-//    private func createModel(tableViewToUpdate: UITableView) {
-//        let jsonParser = JSONParser()
-//        let url = NSBundle.mainBundle().URLForResource("cards", withExtension: "json")
-//        let data = NSData(contentsOfURL: url!)
-//        
-//        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
-//            jsonParser.parseData(data!) { [weak self] (cards) in
-//                if let cards = cards {
-//                    for card in cards {
-//                        let cardTableModel = CardTableModel(title: card.id, subTitle: card.number)
-//                        self?.cardTableModels.append(cardTableModel)
-//                    }
-//                    
-//                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
-//                        tableViewToUpdate.reloadData()
-//                    })
-//                }
-//            }
-//        })
-//    }
-//    
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return cardTableModels.count
-//    }
-//    
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("cell") ?? UITableViewCell(style: .Value1, reuseIdentifier: "cell")
-//        
-//        cell.textLabel?.text = cardTableModels[indexPath.row].title
-//        cell.detailTextLabel?.text = cardTableModels[indexPath.row].subTitle
-//        
-//        return cell
-//    }
-//    
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-//        let cardDetailViewController = CardDetailViewController()
-//        
-//        rootViewController?.navigationController?.pushViewController(cardDetailViewController, animated: true)
-//        tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: false)
-//    }
-//
-//}
-
-
-//class StructVsClass: NSObject {
-//    
-//    struct CustomStruct {
-//        var variable = ""
-//    }
-//    
-//    class CustomClass {
-//        var variable = ""
-//    }
-//    
-//    func doMagic() {
-//        var s1 = CustomStruct()
-//        var s2 = CustomStruct()
-//        
-//        let c1 = CustomClass()
-//        var c2 = CustomClass()
-//        
-//        s1.variable = "struct 1"
-//        s2 = s1
-//        s2.variable = "struct 2"
-//        
-//        c1.variable = "class 1"
-//        c2 = c1
-//        c2.variable = "class 2"
-//        
-//        print("s1 = \(s1.variable) .... c1 = \(c1.variable)")
-//    }
-//    
-//}
 
