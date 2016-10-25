@@ -8,11 +8,9 @@
 
 import UIKit
 
-class ViewControllerNoSB: UIViewController {
+class ViewControllerNoSB: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let tableView = UITableView()
-    
-    var dataSourceAndDelegate: TableViewDataSourceAndDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,9 +18,8 @@ class ViewControllerNoSB: UIViewController {
         title = "Night Of Chances"
         view.backgroundColor = UIColor.whiteColor()
 
-        dataSourceAndDelegate = TableViewDataSourceAndDelegate(rootViewController: self, tableView: tableView)
-        tableView.dataSource = dataSourceAndDelegate
-        tableView.delegate = dataSourceAndDelegate
+        tableView.dataSource = self
+        tableView.delegate = self
         
         view.addSubview(tableView)
     }
@@ -31,6 +28,19 @@ class ViewControllerNoSB: UIViewController {
         super.viewWillLayoutSubviews()
         
         tableView.frame = view.bounds
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") ?? UITableViewCell(style: .Default, reuseIdentifier: "cell")
+        
+        cell.textLabel?.text = "cell \(indexPath.row)"
+        cell.detailTextLabel?.text = "\(indexPath.row) subtitle"
+        
+        return cell
     }
     
 }
