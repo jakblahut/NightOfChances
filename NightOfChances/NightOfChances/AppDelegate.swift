@@ -15,13 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        window = UIWindow(frame: UIScreen.mainScreen().bounds)
-        
-        let viewControllerNoSB = ViewControllerNoSB()
-        let navigationController = UINavigationController(rootViewController: viewControllerNoSB)
-        
-        window?.rootViewController = navigationController
-        window?.makeKeyAndVisible()
+//        window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        
+//        let viewControllerNoSB = ViewControllerNoSB()
+//        let navigationController = UINavigationController(rootViewController: viewControllerNoSB)
+//        
+//        window?.rootViewController = navigationController
+//        window?.makeKeyAndVisible()
         
         return true
     }
