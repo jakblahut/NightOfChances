@@ -18,7 +18,7 @@ class CardDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     init(card: Card) {
         self.card = card
         //TODO: 1. refactor zero 2. move initialization to declaration
-        self.tableView = UITableView(frame: CGRectMake(0, 0, 0, 0), style: .Grouped)
+        self.tableView = UITableView(frame: CGRect(x: 0, y: 0, width: 0, height: 0), style: .grouped)
         
         super.init(nibName: nil, bundle: nil)
         
@@ -32,7 +32,7 @@ class CardDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         // TODO: refactor with bounds
         // Q: table initialization methods
-        self.tableView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+        self.tableView.frame = CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,7 +45,7 @@ class CardDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         view.addSubview(tableView)
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0: return 5
         case 1: return card.actions.count
@@ -53,12 +53,12 @@ class CardDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    func numberOfSections(in tableView: UITableView) -> Int
     {
         return 2
     }
     
-    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String?
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String?
     {
         switch section {
         case 0: return "Info"
@@ -67,14 +67,14 @@ class CardDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
         // TODO: refactor using const identifier
-        var cell: UITableViewCell = tableView.dequeueReusableCellWithIdentifier("DetailCell") ?? UITableViewCell(style: .Value1, reuseIdentifier: "DetailCell")
+        var cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "DetailCell") ?? UITableViewCell(style: .value1, reuseIdentifier: "DetailCell")
         
         if indexPath.section == 0 {
             
-            cell.selectionStyle = .None
+            cell.selectionStyle = .none
             
             // TODO: refactor if statements
             // TODO: move to configure method
@@ -96,36 +96,36 @@ class CardDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             if indexPath.row == 3 {
                 //TODO: refactor DRY
                 cell.textLabel?.text = "Balance"
-                let formatter = NSNumberFormatter()
-                formatter.numberStyle = .DecimalStyle;
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .decimal;
                 formatter.minimumFractionDigits = 2;
                 formatter.maximumFractionDigits = 2;
                 formatter.usesGroupingSeparator = true;
                 formatter.groupingSeparator = " ";
                 formatter.decimalSeparator = ",";
-                cell.detailTextLabel?.text = "\(formatter.stringFromNumber(card.balance)!) \(card.currency)"
+                cell.detailTextLabel?.text = "\(formatter.string(from: card.balance)!) \(card.currency)"
                 
             }
             
             if indexPath.row == 4 {
                 // TODO: refactor formatter allocation
                 cell.textLabel?.text = "Limit"
-                let formatter = NSNumberFormatter()
-                formatter.numberStyle = .DecimalStyle;
+                let formatter = NumberFormatter()
+                formatter.numberStyle = .decimal;
                 formatter.minimumFractionDigits = 2;
                 formatter.maximumFractionDigits = 2;
                 formatter.usesGroupingSeparator = true;
                 formatter.groupingSeparator = " ";
                 formatter.decimalSeparator = ",";
-                cell.detailTextLabel?.text = "\(formatter.stringFromNumber(card.limit)!) \(card.currency)"
+                cell.detailTextLabel?.text = "\(formatter.string(from: card.limit)!) \(card.currency)"
             }
         }
         
         if indexPath.section == 1 {
             // TODO: refactor
-            cell = tableView.dequeueReusableCellWithIdentifier("DetailCell") ?? UITableViewCell(style: .Default, reuseIdentifier: "DetailCell")
-            cell.accessoryType = .DisclosureIndicator
-            cell.selectionStyle = .Gray
+            cell = tableView.dequeueReusableCell(withIdentifier: "DetailCell") ?? UITableViewCell(style: .default, reuseIdentifier: "DetailCell")
+            cell.accessoryType = .disclosureIndicator
+            cell.selectionStyle = .gray
             
             // TODO: enum + switch
             if card.actions[indexPath.row] == "lock" {
@@ -145,8 +145,8 @@ class CardDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         
         // TODO: logic based on function not index
         let function = card.actions[indexPath.row]
@@ -157,22 +157,22 @@ class CardDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         }
         
         // TODO: move to macro
-        let alert = UIAlertController(title: "Not Implemented", message: "Card function not implemented yet", preferredStyle: .Alert)
-        let ok = UIAlertAction(title: "OK", style: .Cancel, handler: nil)
+        let alert = UIAlertController(title: "Not Implemented", message: "Card function not implemented yet", preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(ok)
-        self.presentViewController(alert, animated: true, completion: nil)
+        self.present(alert, animated: true, completion: nil)
     }
     
     // TODO: move to model and take card as argument
     func blockCard() {
-        let blockAlert = UIAlertController(title: "Are you sure you want to block this card?", message: nil, preferredStyle: .ActionSheet)
-        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-        let blockAction = UIAlertAction(title: "Block", style: .Destructive) { (action) in
+        let blockAlert = UIAlertController(title: "Are you sure you want to block this card?", message: nil, preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let blockAction = UIAlertAction(title: "Block", style: .destructive) { (action) in
             // TODO: refactor name
             CardService().blockCard(self.card)
         }
         blockAlert.addAction(blockAction)
         blockAlert.addAction(cancelAction)
-        presentViewController(blockAlert, animated: true, completion: nil)
+        present(blockAlert, animated: true, completion: nil)
     }
 }

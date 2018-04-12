@@ -18,7 +18,7 @@ class ViewControllerNoSB: UIViewController {
         super.viewDidLoad()
         
         title = "Night Of Chances"
-        view.backgroundColor = UIColor.whiteColor()
+        view.backgroundColor = UIColor.white
 
         dataSourceAndDelegate = TableViewDataSourceAndDelegate(rootViewController: self, tableView: tableView)
         tableView.dataSource = dataSourceAndDelegate

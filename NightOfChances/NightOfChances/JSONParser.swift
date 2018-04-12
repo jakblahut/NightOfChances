@@ -12,11 +12,11 @@ typealias parseCompletionBlock = ([Card]?) -> ()
 
 class JSONParser: NSObject {
     
-    func parseData(data: NSData, completionBlock: parseCompletionBlock) {
+    func parseData(_ data: Data, completionBlock: parseCompletionBlock) {
         var jsonData: [String: AnyObject]!
         
         do {
-            jsonData = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) as? [String: AnyObject]
+            jsonData = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions()) as? [String: AnyObject]
         } catch {
             print(error)
             completionBlock(nil)
@@ -42,8 +42,8 @@ class JSONParser: NSObject {
             let limitDic = cardData["limit"] as! [String: AnyObject]
             let limitVal = limitDic["value"] as! NSNumber
             let limitPrec = limitDic["precision"] as! NSNumber
-            let balance = NSDecimalNumber(mantissa: balanceVal.unsignedLongLongValue, exponent: Int16(balancePrec.intValue), isNegative: false)
-            let limit = NSDecimalNumber(mantissa: limitVal.unsignedLongLongValue, exponent: Int16(limitPrec.intValue), isNegative: false)
+            let balance = NSDecimalNumber(mantissa: balanceVal.uint64Value, exponent: Int16(balancePrec.int32Value), isNegative: false)
+            let limit = NSDecimalNumber(mantissa: limitVal.uint64Value, exponent: Int16(limitPrec.int32Value), isNegative: false)
             let currency = balanceDic["currency"] as! String
             let actionsDic = cardData["actions"] as! [String: Int]
             var actions: [String] = Array()

@@ -10,8 +10,8 @@ import UIKit
 
 class CardService: Service {
     
-    func blockCard(card: Card) -> Bool {
-        return performPUT(NSURL(string: "https://api.csas.cz/cards/\(card.id)/activate")!)
+    func blockCard(_ card: Card) -> Bool {
+        return performPUT(URL(string: "https://api.csas.cz/cards/\(card.id)/activate")!)
     }
 
 }

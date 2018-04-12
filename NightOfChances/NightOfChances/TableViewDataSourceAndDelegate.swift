@@ -27,12 +27,12 @@ class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
         createModel(tableView)
     }
     
-    private func createModel(tableViewToUpdate: UITableView) {
+    fileprivate func createModel(_ tableViewToUpdate: UITableView) {
         let jsonParser = JSONParser()
-        let url = NSBundle.mainBundle().URLForResource("cards", withExtension: "json")
-        let data = NSData(contentsOfURL: url!)
+        let url = Bundle.main.url(forResource: "cards", withExtension: "json")
+        let data = try? Data(contentsOf: url!)
         
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), {
+        DispatchQueue.global(priority: DispatchQueue.GlobalQueuePriority.default).async(execute: {
             jsonParser.parseData(data!) { [weak self] (cards) in
                 if let cards = cards {
                     for card in cards {
@@ -40,7 +40,7 @@ class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
                         self?.cardTableModels.append(cardTableModel)
                     }
                     
-                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                    DispatchQueue.main.async(execute: { () -> Void in
                         tableViewToUpdate.reloadData()
                     })
                 }
@@ -48,12 +48,12 @@ class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
         })
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cardTableModels.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell") ?? UITableViewCell(style: .Value1, reuseIdentifier: "cell")
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") ?? UITableViewCell(style: .value1, reuseIdentifier: "cell")
         
         cell.textLabel?.text = cardTableModels[indexPath.row].title
         cell.detailTextLabel?.text = cardTableModels[indexPath.row].subTitle
@@ -61,15 +61,15 @@ class TableViewDataSourceAndDelegate: NSObject, UITableViewDataSource, UITableVi
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cardDetailViewController = CardDetailViewController(card: cardTableModels[indexPath.row].card)
         
         rootViewController?.navigationController?.pushViewController(cardDetailViewController, animated: true)
-        tableView.deselectRowAtIndexPath(tableView.indexPathForSelectedRow!, animated: false)
+        tableView.deselectRow(at: tableView.indexPathForSelectedRow!, animated: false)
     }
     
     func cardDetailViewControllerButtonTapped() {
-        rootViewController?.navigationController?.popViewControllerAnimated(true)
+        rootViewController?.navigationController?.popViewController(animated: true)
     }
     
 }

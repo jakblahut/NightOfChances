@@ -160,6 +160,8 @@
 				TargetAttributes = {
 					94B7262B1DBCFD3500A998C8 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = WGN52MA5QX;
+						LastSwiftMigration = 0830;
 					};
 				};
 			};
@@ -324,10 +326,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WGN52MA5QX;
 				INFOPLIST_FILE = NightOfChances/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.erstegroupit.NightOfChances;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -335,10 +339,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = WGN52MA5QX;
 				INFOPLIST_FILE = NightOfChances/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.erstegroupit.NightOfChances;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};

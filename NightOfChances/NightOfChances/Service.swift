@@ -10,12 +10,12 @@ import UIKit
 
 class Service: NSObject {
     
-    func performGET(url: NSURL) -> Bool {
+    func performGET(_ url: URL) -> Bool {
         // do GET request
         return true
     }
     
-    func performPUT(url: NSURL) -> Bool {
+    func performPUT(_ url: URL) -> Bool {
         // do PUT request
         return true
     }
